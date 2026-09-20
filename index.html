@@ -5,13 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VTV Systems</title>
 <meta name="description" content="Custom software for businesses that run on spreadsheets.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #ffffff;
-    --text: #1a1a1a;
-    --muted: #5a5a5a;
-    --accent: #0a5c36;
-    --rule: #e2e2e2;
+    --bg: #0e0f11;
+    --text: #e8e8e6;
+    --muted: #8a8d91;
+    --accent: #00d47e;
+    --rule: #232528;
+    --sp1: 8px;
+    --sp2: 16px;
+    --sp3: 24px;
+    --sp4: 32px;
+    --sp6: 48px;
+    --sp8: 64px;
+    --font-sans: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   }
 
   * {
@@ -24,39 +35,97 @@
 
   body {
     margin: 0;
-    padding: 4rem 1.5rem 5rem;
+    padding: var(--sp6) var(--sp3) var(--sp8);
     background: var(--bg);
     color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 17px;
+    font-family: var(--font-sans);
+    font-size: 16px;
     line-height: 1.6;
     text-align: left;
   }
 
   main {
-    max-width: 680px;
+    max-width: 720px;
     margin: 0 auto;
   }
 
-  header {
-    margin-bottom: 3.5rem;
+  a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+
+  a:hover,
+  a:focus-visible {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  /* header */
+
+  .status {
+    display: flex;
+    align-items: center;
+    gap: var(--sp1);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: var(--sp3);
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 1px;
+    background: var(--accent);
+    box-shadow: 0 0 0 0 rgba(0, 212, 126, 0.6);
+    animation: pulse 2.4s ease-in-out infinite;
+    flex: none;
+  }
+
+  @keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.35; }
+    100% { opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dot {
+      animation: none;
+    }
   }
 
   h1 {
-    font-size: 1.5rem;
+    font-family: var(--font-sans);
     font-weight: 700;
-    margin: 0 0 0.5rem;
+    font-size: 1.75rem;
     letter-spacing: -0.01em;
+    margin: 0 0 var(--sp2);
+    line-height: 1.15;
   }
 
-  header p {
-    margin: 0;
+  .tagline {
+    margin: 0 0 var(--sp4);
     color: var(--muted);
     font-size: 1rem;
+    max-width: 42ch;
   }
 
+  .rule-accent {
+    height: 1px;
+    background: var(--accent);
+    border: none;
+    margin: 0 0 var(--sp6);
+    opacity: 0.6;
+  }
+
+  /* sections */
+
   section {
-    margin-bottom: 3.5rem;
+    margin-bottom: var(--sp6);
   }
 
   section:last-of-type {
@@ -64,57 +133,89 @@
   }
 
   h2 {
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 0.72rem;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.14em;
     color: var(--muted);
-    margin: 0 0 1.25rem;
+    margin: 0 0 var(--sp3);
+    padding-bottom: var(--sp2);
+    border-bottom: 1px solid var(--rule);
   }
 
-  ul {
+  /* capability list */
+
+  ul.capabilities {
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
-  li {
-    padding: 0.6rem 0;
+  ul.capabilities li {
+    display: flex;
+    align-items: baseline;
+    gap: var(--sp2);
+    padding: var(--sp2) 0;
     border-top: 1px solid var(--rule);
-    font-size: 1.05rem;
+    font-size: 1.02rem;
   }
 
-  li:first-child {
+  ul.capabilities li:first-child {
     border-top: none;
   }
 
-  section p {
+  ul.capabilities .idx {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--muted);
+    flex: none;
+    width: 2ch;
+  }
+
+  /* how it works */
+
+  .prose {
     margin: 0;
-    max-width: 56ch;
+    max-width: 58ch;
+    color: var(--text);
+    font-size: 1.02rem;
   }
 
-  a {
-    color: var(--accent);
-    text-decoration: none;
-    border-bottom: 1px solid currentColor;
+  /* contact */
+
+  .contact-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp3);
   }
 
-  a:hover {
-    opacity: 0.8;
+  .contact-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
   }
 
-  .contact-line {
-    font-size: 1.05rem;
+  .contact-row .label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
   }
 
-  .contact-line + .contact-line {
-    margin-top: 0.5rem;
+  .contact-row a {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--text);
+    border-bottom: 1px solid var(--rule);
+    width: fit-content;
   }
 
-  @media (max-width: 400px) {
-    body {
-      padding: 3rem 1.25rem 4rem;
-      font-size: 16px;
+  @media (min-width: 480px) {
+    .contact-grid {
+      flex-direction: row;
+      gap: var(--sp8);
     }
   }
 </style>
@@ -122,30 +223,43 @@
 <body>
 <main>
 
-  <header>
-    <h1>VTV Systems</h1>
-    <p>Custom software for businesses that run on spreadsheets.</p>
-  </header>
+  <div class="status">
+    <span class="dot" aria-hidden="true"></span>
+    <span>System active</span>
+  </div>
+
+  <h1>VTV Systems</h1>
+  <p class="tagline">Custom software for businesses that run on spreadsheets.</p>
+
+  <hr class="rule-accent">
 
   <section>
-    <h2>What I build</h2>
-    <ul>
-      <li>Operations and dispatch tools</li>
-      <li>Inventory and stock systems</li>
-      <li>Billing and practice management</li>
-      <li>Custom internal apps</li>
+    <h2>What I Build</h2>
+    <ul class="capabilities">
+      <li><span class="idx">01</span><span>Operations and dispatch tools</span></li>
+      <li><span class="idx">02</span><span>Inventory and stock systems</span></li>
+      <li><span class="idx">03</span><span>Billing and practice management</span></li>
+      <li><span class="idx">04</span><span>Custom internal apps</span></li>
     </ul>
   </section>
 
   <section>
-    <h2>How it works</h2>
-    <p>I build around the workflow you already have rather than forcing a new process onto it. I deploy the result, and I stay on to maintain it afterwards — that part doesn't stop at handoff.</p>
+    <h2>How It Works</h2>
+    <p class="prose">I build around the workflow you already have rather than forcing a new process onto it. I deploy it, and I maintain it afterwards.</p>
   </section>
 
   <section>
     <h2>Contact</h2>
-    <p class="contact-line"><a href="mailto:vian@vtvsystems.com">vian@vtvsystems.com</a></p>
-    <p class="contact-line"><a href="tel:+27603371697">+27 60 337 1697</a></p>
+    <div class="contact-grid">
+      <div class="contact-row">
+        <span class="label">Email</span>
+        <a href="mailto:vian@vtvsystems.com">vian@vtvsystems.com</a>
+      </div>
+      <div class="contact-row">
+        <span class="label">Phone</span>
+        <a href="tel:+27603371697">+27 60 337 1697</a>
+      </div>
+    </div>
   </section>
 
 </main>
