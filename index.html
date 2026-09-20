@@ -148,15 +148,27 @@
     max-width: var(--measure);
   }
   .contact .phone {
-    margin: 22px 0 0;
+    margin: 20px 0 0;
   }
   .contact .phone a {
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 500;
-    color: var(--muted);
+    color: var(--steel);
     border-bottom: 1px solid var(--rule);
   }
-  .contact .phone a:hover { color: var(--steel); }
+  .contact .phone a:hover { color: var(--muted); }
+
+  .hero-cta {
+    margin: 32px 0 0;
+  }
+  .hero-cta a {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--steel);
+    text-decoration: none;
+    border-bottom: 3px solid var(--yellow);
+  }
+  .hero-cta a:hover { color: var(--muted); }
 
   footer {
     margin-top: 72px;
@@ -188,6 +200,7 @@
 
   <h1>Custom software for businesses that run on spreadsheets.</h1>
   <p class="lede">I build operational tools around how the work actually happens — then deploy them, and keep them running.</p>
+  <p class="hero-cta"><a href="#contact">Get in touch</a></p>
 
   <section>
     <h2>What I build</h2>
@@ -224,7 +237,7 @@
     </div>
   </section>
 
-  <div class="contact">
+  <div class="contact" id="contact">
     <h2>Get in touch</h2>
     <a href="mailto:vian@vtvsystems.com">vian@vtvsystems.com</a>
     <p class="phone"><a href="tel:+27603371697">+27 60 337 1697</a></p>
