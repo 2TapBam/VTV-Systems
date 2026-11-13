@@ -19,10 +19,17 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/barlow-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  /* fonts are served from this site (SIL Open Font License, see /fonts/*-OFL.txt) */
+  @font-face { font-family: "Barlow"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/barlow-latin-400-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Barlow"; font-style: normal; font-weight: 500; font-display: swap; src: url("/fonts/barlow-latin-500-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Barlow"; font-style: normal; font-weight: 600; font-display: swap; src: url("/fonts/barlow-latin-600-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Barlow"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/barlow-latin-700-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Barlow"; font-style: normal; font-weight: 800; font-display: swap; src: url("/fonts/barlow-latin-800-normal.woff2") format("woff2"); }
+  @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("/fonts/jetbrains-mono-latin-500-normal.woff2") format("woff2"); }
+
   :root {
     --paper: #E6E6E2;
     --card: #F7F7F4;
@@ -375,7 +382,7 @@
 
         <article class="sys">
           <div class="shot">
-            <img src="/img/portal.webp" alt="The Onboarding Portal's staff list of companies that have applied, each with a status: needs checking, approved, waiting for final sign-off, or waiting for the applicant to fix two things." width="1400" height="875" loading="lazy">
+            <img src="/img/portal.webp" alt="The Onboarding Portal's staff list of companies that have applied, each with a status such as needs checking, approved or waiting for final sign-off." width="1080" height="675" loading="lazy">
           </div>
           <div class="info">
             <span class="tag">Web · Applicants + staff</span>
@@ -386,7 +393,7 @@
 
         <article class="sys">
           <div class="shot">
-            <img src="/img/stocktake.webp" alt="A stock count in Stocktake: counted items with booked and counted quantities, most marked as a match and three showing a gap and its value in rand, above a list of items not counted yet." width="1400" height="875" loading="lazy">
+            <img src="/img/stocktake.webp" alt="A stock count in progress in Stocktake: 8 of 14 items counted, 5 matched and 3 with a gap, above a table of booked and counted quantities showing each gap and its value in rand." width="1104" height="690" loading="lazy">
           </div>
           <div class="info">
             <span class="tag">Web + phone · Multi-user</span>
@@ -397,7 +404,7 @@
 
         <article class="sys wide">
           <div class="shot">
-            <img src="/img/billable.webp" alt="Billable's WIP summary: a list of clients with unbilled hours, the value of that work in rand and the date of the oldest unbilled entry, each with a link to bill it." width="1400" height="875" loading="lazy">
+            <img src="/img/billable.webp" alt="Billable's WIP summary: a list of clients with unbilled hours, the value of that work in rand and the date of the oldest unbilled entry, each with a link to bill it." width="1008" height="630" loading="lazy">
           </div>
           <div class="info">
             <span class="tag">Web · Practice management</span>
@@ -434,7 +441,7 @@
       <div class="founder">
         <div class="mark" aria-hidden="true">V</div>
         <div>
-          <p>I started VTV Systems after building software for operations I was working in myself, like trucks, stock and plant work, and seeing how much time a business loses to spreadsheets and paperwork.</p>
+          <p>I started VTV Systems after building software for the trucking, stock control and plant operations I worked in myself. Every one had the same problem: hours lost to spreadsheets, paperwork and chasing people for updates. We build the software that gives that time back.</p>
           <p class="sig">Vian van Tonder, Founder</p>
         </div>
       </div>
