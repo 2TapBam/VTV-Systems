@@ -9,6 +9,12 @@
 <meta property="og:description" content="We build the systems your business runs on, then host them and keep them running.">
 <meta property="og:url" content="https://vtvsystems.com/">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="VTV Systems">
+<meta property="og:image" content="https://vtvsystems.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VTV Systems: custom software for your business, next to the Onboarding Portal on a phone.">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#1B2733">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
@@ -81,12 +87,15 @@
     height: 72px; gap: 24px;
   }
   .logo { height: 36px; width: auto; display: block; }
-  .lm-tile, .lm-word { fill: var(--steel); }
-  .lm-v { fill: var(--paper); }
+  /* the tile stays dark in both themes, like the brand icon; only the wordmark follows the theme */
+  .lm-tile { fill: #1B2733; }
+  .lm-word { fill: var(--steel); }
+  .lm-v { fill: #E6E6E2; }
   .lm-bar { fill: var(--yellow); }
   .nav ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 30px; }
   .nav ul a { text-decoration: none; font-weight: 500; font-size: 16px; color: var(--muted); }
   .nav ul a:hover { color: var(--steel); }
+  .nav ul a.btn-primary, .nav ul a.btn-primary:hover { color: #1B2733; }
 
   .btn {
     display: inline-block; text-decoration: none; font-weight: 600; font-size: 17px;
@@ -120,7 +129,7 @@
 
   /* hero: a real phone screenshot in a plain bezel */
   .phone {
-    width: min(290px, 80%); margin: 0 auto; padding: 10px;
+    width: min(290px, 80%); margin: 0 0 0 auto; padding: 10px; /* right-aligned on desktop so the note sits beside it */
     background: #0B1015; border-radius: 42px;
     box-shadow: 0 30px 60px -25px rgba(10,16,22,.5), 0 0 0 1px rgba(255,255,255,.06);
   }
@@ -128,7 +137,7 @@
 
   .hero-visual { position: relative; }
   .hero-visual .float {
-    position: absolute; left: -40px; bottom: 56px; width: 230px;
+    position: absolute; left: -40px; bottom: 40px; width: 200px;
     background: #F7F7F4; color: #1B2733; border-radius: 12px; padding: 14px 16px;
     box-shadow: 0 20px 40px -18px rgba(10,16,22,.45);
     border-left: 5px solid #E8B400; font-size: 14px;
@@ -153,15 +162,20 @@
     padding: 26px 24px;
   }
   .area .ico {
-    width: 42px; height: 42px; border-radius: 10px; background: var(--steel);
+    width: 42px; height: 42px; border-radius: 10px; background: #1B2733;
     display: grid; place-items: center; margin-bottom: 18px;
   }
   .area .ico svg { width: 22px; height: 22px; stroke: var(--yellow); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
   .area h3 { font-size: 20px; font-weight: 600; margin: 0 0 6px; }
   .area p { margin: 0; color: var(--muted); font-size: 16.5px; }
-  .area.more { background: var(--steel); border-color: var(--steel); color: var(--paper); display: flex; flex-direction: column; justify-content: space-between; }
-  .area.more p { color: color-mix(in srgb, var(--paper) 70%, transparent); }
+  .area.more { background: #1B2733; border-color: #1B2733; color: #E8E8E4; display: flex; flex-direction: column; justify-content: space-between; }
+  .area.more p { color: #A8B1BA; }
   .area.more a { color: var(--yellow); font-weight: 600; text-decoration: none; margin-top: 18px; }
+  @media (prefers-color-scheme: dark) {
+    .lm-tile { stroke: #34424F; stroke-width: 3; }
+    .area .ico { box-shadow: inset 0 0 0 1px #34424F; }
+    .area.more { background: #263443; border-color: #34424F; }
+  }
 
   /* systems */
   .systems { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
@@ -203,9 +217,10 @@
     max-width: 760px;
   }
   .founder .mark {
-    width: 56px; height: 56px; border-radius: 14px; background: var(--steel); color: var(--yellow);
+    width: 56px; height: 56px; border-radius: 14px; background: #1B2733; color: var(--yellow);
     display: grid; place-items: center; font-weight: 800; font-size: 22px;
   }
+  @media (prefers-color-scheme: dark) { .founder .mark { box-shadow: inset 0 0 0 1px #34424F; } }
   .founder p { margin: 0; font-size: 19px; }
   .founder .sig { margin-top: 10px; font-size: 16px; color: var(--muted); }
 
@@ -237,6 +252,7 @@
 
   @media (max-width: 960px) {
     .hero .wrap { grid-template-columns: 1fr; gap: 56px; }
+    .phone { margin: 0 auto; }
     .hero-visual .float { left: 8px; }
     .areas { grid-template-columns: repeat(2, 1fr); }
     .contact-box { grid-template-columns: 1fr; }
@@ -250,6 +266,7 @@
     .sys.wide { flex-direction: column; }
     .sys.wide .shot { flex: none; }
     .sys.wide .info { padding: 24px 26px 28px; }
+    .hero-visual .float { position: static; width: min(290px, 80%); margin: 16px auto 0; }
     .steps { grid-template-columns: 1fr; gap: 36px; }
     .step { padding: 0; }
     .contact-box { padding: 44px 26px; }
@@ -257,7 +274,6 @@
   @media (max-width: 520px) {
     .wrap { padding: 0 20px; }
     .logo { height: 30px; }
-    .hero-visual .float { position: static; width: auto; margin-top: 14px; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
